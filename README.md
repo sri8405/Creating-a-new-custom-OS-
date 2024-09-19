@@ -5,6 +5,12 @@
 
 ## 1. Setting Up the Virtual Environment
 #### I initially installed VM VirtualBox, a hypervisor that enables running multiple OS on a single physical machine. This setup allowed for experimentation with different Linux distributions without altering the host machine.
+## Install VirtualBox: Follow the installation instructions for your host OS from the VirtualBox website.
+#### Create a New VM
+    ```bash
+    VBoxManage createvm --name <VM_Name> --register
+    VBoxManage modifyvm <VM_Name> --memory <Size_MB> --cpus <Number_of_CPUs> --boot1 dvd --nic1 nat
+
 - ### Tools Used:
 - #### VirtualBox for virtualization
 - #### Various Linux-based distributions as base systems
