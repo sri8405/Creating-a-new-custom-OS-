@@ -6,10 +6,23 @@
 ## 1. Setting Up the Virtual Environment
 #### I initially installed VM VirtualBox, a hypervisor that enables running multiple OS on a single physical machine. This setup allowed for experimentation with different Linux distributions without altering the host machine.
 ## Install VirtualBox: Follow the installation instructions for your host OS from the VirtualBox website.
-#### Create a New VM
-    ```bash
+- Create a New VM
+  ```bash
     VBoxManage createvm --name <VM_Name> --register
     VBoxManage modifyvm <VM_Name> --memory <Size_MB> --cpus <Number_of_CPUs> --boot1 dvd --nic1 nat
+
+### - Using Zorin OS with Buildroot
+- Install Zorin OS: Download from the Zorin OS website and install it in VirtualBox.
+- Install Buildroot:
+  ```bash
+  sudo apt-get update
+  sudo apt-get install build-essential git
+  git clone https://git.buildroot.net/buildroot.git
+  cd buildroot
+
+  make menuconfig
+
+  make
 
 - ### Tools Used:
 - #### VirtualBox for virtualization
@@ -31,6 +44,15 @@
 #### Due to frequent system crashes while using Buildroot (likely caused by resource constraints), I switched to the Yocto Project, a robust system for creating custom Linux distributions, particularly for embedded systems.
 ### - About Yocto Project: 
 #### - The Yocto Project provides templates and tools for creating custom Linux-based systems, supporting multiple architectures and offering extensive customization options.
+- Clone Yocto Project:
+  ```bash
+  git clone https://github.com/yoctoproject/poky.git
+  cd poky
+
+- Setup Yocto environment
+  ```bash
+  source oe-init-build-env
+- Configure Yocto Build: Edit conf/local.conf and conf/bblayers.conf to specify your build configurations and layers.
 
 ### - Advantages of Yocto over Buildroot:
 #### - Modular development structure.
