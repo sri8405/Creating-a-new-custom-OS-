@@ -76,6 +76,14 @@
 
 ## 7. Using Raspberry Pi OS Lite
 - During the process, I also experimented with Raspberry Pi OS Lite, which uses the ARMv8-A architecture. However, VM VirtualBox supports only x86 and AMD64/Intel64 architectures, making it incompatible with Raspberry Pi OS Lite.
+- QEMU (Quick Emulator): QEMU is an open-source emulator that supports ARM architecture.
+- Installing and Configuring QEMU
+- Install QEMU on Windows Download the QEMU installer for Windows from the official website.
+- Create and Configure Virtual Machine Use QEMU to emulate ARM architecture:
+  ```bash
+  qemu-system-arm -m 256 -M versatilepb -kernel zImage -append "root=/dev/sda2" -hda your_image.img
+
+- Replace zImage with your kernel image and your_image.img with the Raspberry Pi OS Lite image.
 
 ### Observation
 -Creating a custom OS with Buildroot was much simpler than reconfiguring Raspberry Pi OS Lite due to its architecture and configuration requirements.
